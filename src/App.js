@@ -28,22 +28,6 @@ function App() {
         return parts[parts.length - 1];
     }
 
-    // Görsel için random pozisyon ve boyut üreten yardımcı fonksiyon
-    const generateRandomStyle = () => {
-        const top = Math.floor(Math.random() * (window.innerHeight - 300));
-        const left = Math.floor(Math.random() * (window.innerWidth - 300));
-        const size = Math.floor(Math.random() * 150) + 300; // 300–450px
-        const rotate = Math.floor(Math.random() * 40) - 20;
-
-        return {
-            top: `${top}px`,
-            left: `${left}px`,
-            width: `${size}px`,
-            transform: `rotate(${rotate}deg)`
-        };
-    };
-
-
     if (showIntro || !replik) {
         return (
             <div className="intro-screen">
@@ -76,19 +60,6 @@ function App() {
             </div>
 
             <button onClick={yeniReplik}>Yeni Replik Göster 🔁</button>
-
-            {/* DAĞINIK GÖRSELLER */}
-            <div className="gorsel-galeri">
-                {[...Array(9)].map((_, i) => (
-                    <img
-                        key={i}
-                        src={require(`./gorsel/${i + 1}.webp`)}
-                        alt={`Gibi ${i + 1}`}
-                        className="gorsel-kaos"
-                        style={generateRandomStyle()}
-                    />
-                ))}
-            </div>
         </div>
     );
 }
